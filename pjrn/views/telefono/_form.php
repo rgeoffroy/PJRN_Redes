@@ -26,7 +26,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'patrimonio')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'central_id')->textInput() ?>
+    <?php 
+	    $items = ArrayHelper::map(Central::find()->all(), 'id', 'ip');
+	    $form->field($model, 'telefono')->dropDownList($items)
+	?>
 
     <?= $form->field($model, 'habilitado')->textInput() ?>
 
